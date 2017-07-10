@@ -6,10 +6,12 @@ $(document).ready( function(){
 	//cree una clase nueva para el menu para poder ocultarla
 	$(".menu-icono").hide();
 
+	//A la etiqueta p se le agrega una clase nueva, y dentro de la funcion se utiliza la funcion .html()
+	//para que imprima el texto deseado
 	function printNews(){
 		$(".print-news").html("NUEVAS RECETAS");
 	}
-
+	//se necesita llamar a la funcion para que se refleje el camnio
 	printNews();
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
@@ -24,6 +26,14 @@ $(document).ready( function(){
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
+
+	var newRecipeArray = $.grep(recipesArray, function(e) {
+	    return e.highlighted == true;
+	});
+
+	console.log(newRecipeArray);
+	renderRecipe(newRecipeArray);
+
 }
 
 /*
