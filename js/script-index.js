@@ -27,6 +27,7 @@ $(document).ready( function(){
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
 
+	//La funcion .grep() es muy parecida a filter()
 	var newRecipeArray = $.grep(recipesArray, function(e) {
 	    return e.highlighted == true;
 	});
@@ -44,6 +45,24 @@ function renderHighlightedRecipes(recipesArray) {
 */
 function renderRecipe(recipe) {
 	console.log('Voy a pintar la receta: ', recipe);
+
+	recipe.forEach(function(element){
+            var title = element.title;
+            var author = element.source.name;
+            var image = element.source.url;
+            $(".list-recipes").append('<a class="item-recipe" href="#">'+
+            	'<span class="attribution">'+
+	            	'<span class="title-recipe"> '+title+' </span> '+
+	            	'<span class="metadata-recipe"> '+
+		            	'<span class="author-recipe"> '+author+' </span> '+
+		            	'<span class="bookmarks-recipe"> '+
+		            		'<span class="icon-bookmark"></span> '+
+	            		'</span> '+
+	            	'</span> '+
+            	'</span>'+
+            	'<img src="img/recipes/320x350/spring-fromage-fort.jpg"/>'+
+            	'</a>');    
+    });
 }
 
 
