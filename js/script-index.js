@@ -17,11 +17,6 @@ $(document).ready( function(){
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 	renderActivities(activitiesArray);
-
-	//La etapa 7 me pide que imprima un mensaje en la consola cuando el documento HTML este listo,
-	//asi que pongo el console.log en esta seccion que ejecuta funciones cuando el documento esta "ready"
-	console.log("Mi documento esta listo");
-
 });
 
 
@@ -82,15 +77,12 @@ function renderActivities(activitiesArray) {
 	if(activitiesArray.length > 0){
 		$(".wrapper-message").hide();
 	}
-	if(activitiesArray.length = 1){
-		activitiesArray.forEach(function(el){
-			renderActivity(el);
-		});
-	}
-
-	//PAra la etapa 7 me pide imprimir un mensaje cuando 
 	
+	activitiesArray.forEach(function(el){
+		renderActivity(el);
+	});
 }
+
 
 /*
 * Función que se encarga de pintar una actividad
@@ -99,22 +91,24 @@ function renderActivities(activitiesArray) {
 */
 function renderActivity(recipe) {
 	var nombre = recipe.userName;
-	console.log(recipe.userAvatar);
-	console.log(recipe.userName);
+	var author = nombre.split(" ");
+	var nombreAutor = author[0];
+	var recetaNombre = recipe.recipeName;
+	var receta = recetaNombre.charAt(0).toUpperCase();
+	console.log(recipe);
 	$(".list-activities").append('<a href="#" class="item-activity">'+
 			'<span class="attribution">'+
 				'<span class="avatar">'+
 					'<img src="'+recipe.userAvatar+'" class="image-avatar">'+
 				'</span>'+
 				'<span class="meta">'+
-					'<span class="author">'+nombre+'</span> made '+
+					'<span class="author">'+nombreAutor+'</span> made '+
 					'<span class="recipe">'+recipe.recipeName+'</span>: '+recipe.text+
 					'<span class="location"> -'+recipe.place+'</span>'+
 				'</span>'+
 			'</span>'+
 			'<div class="bg-image" style="background-image: url(\''+recipe.image+'\');"></div>'+
 		'</a>');
-	console.log("Listo");
 }
 
 
