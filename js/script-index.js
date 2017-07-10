@@ -6,6 +6,12 @@ $(document).ready( function(){
 	//cree una clase nueva para el menu para poder ocultarla
 	$(".menu-icono").hide();
 
+	function printNews(){
+		$(".print-news").html("NUEVAS RECETAS");
+	}
+
+	printNews();
+
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
 
