@@ -74,10 +74,16 @@ function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
 	//Cuando reviso la consola me indica que el arreglo activitiesArray tiene un solo objeto, por lo tanto no es necesario recorrer el arreglo
 	console.log(activitiesArray.length);
-	//Validacion del arreglo activitiesArray si es mayor que 0
+	//Validacion del arreglo activitiesArray si es mayor que 0 ocultar 
 	if(activitiesArray.length > 0){
 		$(".wrapper-message").hide();
 	}
+	if(activitiesArray.length = 1){
+		activitiesArray.forEach(function(el){
+			renderActivity(el);
+		});
+	}
+	
 }
 
 /*
@@ -86,7 +92,22 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
-	
+	var nombre = recipe.userName;
+	console.log(recipe.userAvatar);
+	console.log(recipe.userName);
+	$(".list-activities").append('<a href="#" class="item-activity">'+
+			'<span class="attribution">'+
+				'<span class="avatar">'+
+					'<img src="'+recipe.userAvatar+'" class="image-avatar">'+
+				'</span>'+
+				'<span class="meta">'+
+					'<span class="author">'+nombre+'</span> made '+
+					'<span class="recipe">'+recipe.recipeName+'</span>: '+recipe.text+
+					'<span class="location"> -'+recipe.place+'</span>'+
+				'</span>'+
+			'</span>'+
+			'<div class="bg-image" style="background-image: url(\''+recipe.image+'\');"></div>'+
+		'</a>');
 }
 
 
