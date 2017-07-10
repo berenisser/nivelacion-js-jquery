@@ -16,6 +16,7 @@ $(document).ready( function(){
 
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
+	renderActivities(activitiesArray);
 
 });
 
@@ -49,7 +50,6 @@ function renderRecipe(recipe) {
 	recipe.forEach(function(element){
             var title = element.title;
             var author = element.source.name;
-            var image = element.source.url;
             $(".list-recipes").append('<a class="item-recipe" href="#">'+
             	'<span class="attribution">'+
 	            	'<span class="title-recipe"> '+title+' </span> '+
@@ -60,7 +60,7 @@ function renderRecipe(recipe) {
 	            		'</span> '+
 	            	'</span> '+
             	'</span>'+
-            	'<img src="img/recipes/320x350/spring-fromage-fort.jpg"/>'+
+            	'<img src="img/recipes/320x350/'+element.name+'.jpg"/>'+
             	'</a>');    
     });
 }
@@ -72,6 +72,12 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+	//Cuando reviso la consola me indica que el arreglo activitiesArray tiene un solo objeto, por lo tanto no es necesario recorrer el arreglo
+	console.log(activitiesArray.length);
+	//Validacion del arreglo activitiesArray si es mayor que 0
+	if(activitiesArray.length > 0){
+		$(".wrapper-message").hide();
+	}
 }
 
 /*
