@@ -18,6 +18,10 @@ $(document).ready( function(){
 	renderHighlightedRecipes(recipesArray);
 	renderActivities(activitiesArray);
 
+	//La etapa 7 me pide que imprima un mensaje en la consola cuando el documento HTML este listo,
+	//asi que pongo el console.log en esta seccion que ejecuta funciones cuando el documento esta "ready"
+	console.log("Mi documento esta listo");
+
 });
 
 
@@ -83,6 +87,8 @@ function renderActivities(activitiesArray) {
 			renderActivity(el);
 		});
 	}
+
+	//PAra la etapa 7 me pide imprimir un mensaje cuando 
 	
 }
 
@@ -108,6 +114,7 @@ function renderActivity(recipe) {
 			'</span>'+
 			'<div class="bg-image" style="background-image: url(\''+recipe.image+'\');"></div>'+
 		'</a>');
+	console.log("Listo");
 }
 
 
