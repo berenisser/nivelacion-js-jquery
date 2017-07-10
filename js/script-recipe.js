@@ -4,29 +4,26 @@ $(document).ready( function(){
 	console.log("Mi documento esta listo");
 
 	/*Etapa 8: se asignan funciones que se ejecuten cuando el usuario hace click en las
-	pestañas "Recipe" o "Make it", ambas funciones son equivalente a:
-	$(".js-show-recipe").click(function(){
-
-	})*/
+	pestañas "Recipe" o "Make it"*/
 
 	$(".js-show-recipe").click(function(){
 		console.log("Recipe");
        $(".page.recipe").removeClass("make");
+       $(this).addClass('active');
+       $(".js-show-make").removeClass("active");
 	})
 
 	$(".js-show-make").click(function(){
 		console.log("Make it");
        $(".page.recipe").addClass("make");
+       $(this).addClass('active');
+       $(".js-show-recipe").removeClass("active");
 	})
-	/*
+
+	/* Este llamado no funciona para este ejercicio de Etapa 8
 	$(".btns-group").on("click", $(".js-show-recipe"), function(e) {
 		console.log("Recipe");
        $(".page.recipe").removeClass("make");
-    });
-
-	$(".btns-group").on("click", $(".js-show-make"), function(e) {
-		console.log("Make it");
-       $(".page.recipe").addClass("make");
     });*/
 
 });
